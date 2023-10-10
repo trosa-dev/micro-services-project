@@ -7,6 +7,8 @@ WORKDIR /app
 # Bundle app source
 COPY . .
 
+RUN npm i prisma -g
+
 # Install app dependencies
 RUN npm install
 
@@ -14,5 +16,5 @@ RUN npm install
 RUN npm run build
 
 # Start the server using the production build
-#CMD [  "npm", "run",  "start:migrate:prod" ]
-CMD [ "npm", "run", "start:dev" ]
+CMD [  "npm", "run",  "start:migrate:prod" ]
+#CMD [ "npm", "run", "start:dev" ]

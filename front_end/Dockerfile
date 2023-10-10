@@ -19,9 +19,6 @@ ENV NEXT_PUBLIC_PAYMENT_GATEWAY_PORT=3004
 ENV NEXT_PUBLIC_WS_PENSION_SYSTEM_UR=localhost:3003
 ENV NEXT_PUBLIC_WS_PAYMENT_GATEWAY_URL=localhost:3004
 
-# Creates a "dist" folder with the production build
-RUN npm run build
-
 # Start the server using the production build
 #CMD [  "npm", "run",  "start" ]
 CMD [ "npm", "run", "dev" ]
