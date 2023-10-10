@@ -96,9 +96,6 @@ services:
     # environment: MUST be setted at .dockerfile for NextJS
     ports:
       - "3000:3000"
-    depends_on:
-      - db
-      - redis
     networks:
       - app-net
     volumes:
