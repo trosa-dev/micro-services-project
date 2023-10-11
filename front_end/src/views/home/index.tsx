@@ -24,6 +24,7 @@ export const HomeView = () => {
               ) : (
                 <>
                   <Alert severity='warning'>Service is loading!</Alert>
+                  You might need to restart the application
                 </>
               )}
             </CardContent>
@@ -38,6 +39,7 @@ export const HomeView = () => {
               ) : (
                 <>
                   <Alert severity='warning'>Service is loading!</Alert>
+                  You might need to restart the application
                 </>
               )}
             </CardContent>

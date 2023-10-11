@@ -18,6 +18,16 @@ const navigation = (): VerticalNavItemsType => {
       path: '/payments',
       icon: 'bx:money',
     },
+    {
+      title: 'Queues',
+      path: 'http://localhost:3003/queues',
+      icon: 'heroicons:queue-list',
+    },
+    {
+      title: 'Kafka',
+      path: 'http://localhost:9021',
+      icon: 'heroicons:queue-list',
+    },
   ]
 }
 
