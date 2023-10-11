@@ -9,10 +9,4 @@ import { Server } from 'socket.io';
 export class AppGateway {
   @WebSocketServer()
   server: Server;
-
-  sendMessageToAll() {
-    this.server.emit('message', {
-      message: 'Mensagem enviada em ' + new Date(),
-    });
-  }
 }
