@@ -10,14 +10,15 @@ Redux,
 Tailwind CSS,
 
 **Back-end:** NestJS,
-Node.js
+Node.js,
+Docker
 
 **Database and Storage:** PostgreSQL,
 Redis
 
 **Background Processing:** Bull
 
-**Messaging:** Kafka
+**Messaging:** Kafka, WebSocket
 
 ## Features
 
