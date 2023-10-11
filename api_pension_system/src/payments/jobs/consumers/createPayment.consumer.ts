@@ -24,6 +24,6 @@ export class CreatePaymentConsumer {
 
   @OnQueueActive()
   onActive(job: Job) {
-    console.log(`Processing newPayment ${job.id} of type ${job.name} with data ${job.data}...`);
+    console.log(`Processing newPayment ${job.id} of type ${job.name}`);
   }
 }

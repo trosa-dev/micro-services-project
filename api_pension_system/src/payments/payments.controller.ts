@@ -32,7 +32,7 @@ export class PaymentsController {
 
       return seusDados;
     } catch (error) {
-      return { msg: 'algo deu errado' };
+      return { msg: 'Something went wrong' };
     }
   }
 }
