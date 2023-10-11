@@ -5,32 +5,37 @@ import { ValidationPipe } from '@nestjs/common';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  app.useGlobalPipes(new ValidationPipe());
+  try {
+    const app = await NestFactory.create(AppModule);
+    app.useGlobalPipes(new ValidationPipe());
 
-  const config = new DocumentBuilder()
-    .setTitle('Pension System')
-    .setDescription('The pension system API description')
-    .setVersion('1.0')
-    .build();
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+    const config = new DocumentBuilder()
+      .setTitle('Pension System')
+      .setDescription('The pension system API description')
+      .setVersion('1.0')
+      .build();
+    const document = SwaggerModule.createDocument(app, config);
+    SwaggerModule.setup('api', app, document);
 
-  app.connectMicroservice<MicroserviceOptions>({
-    transport: Transport.KAFKA,
-    options: {
-      client: {
-        brokers: [`${process.env.KAFKA_HOST}:${process.env.KAFKA_PORT}`],
+    app.connectMicroservice<MicroserviceOptions>({
+      transport: Transport.KAFKA,
+      options: {
+        client: {
+          brokers: [`${process.env.KAFKA_HOST}:${process.env.KAFKA_PORT}`],
+        },
+        consumer: {
+          groupId: 'payments-response',
+        },
+        parser: { keepBinary: false },
       },
-      consumer: {
-        groupId: 'payments-response',
-      },
-      parser: { keepBinary: false },
-    },
-  });
-  await app.startAllMicroservices();
+    });
+    await app.startAllMicroservices();
 
-  app.enableCors();
-  await app.listen(process.env.PORT);
+    app.enableCors();
+    await app.listen(process.env.PORT);
+  } catch (error) {
+    console.error(error);
+    throw new Error('Something went wrong');
+  }
 }
 bootstrap();
