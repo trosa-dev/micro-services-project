@@ -7,7 +7,6 @@ import { RootState } from 'src/store'
 
 export const CustomForm = () => {
   const createUserState = useSelector((state: RootState) => state.createUser)
-
   const { email, name } = createUserState
 
   return (

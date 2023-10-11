@@ -5,9 +5,9 @@ import { RootState } from 'src/store'
 import { set_CreateUser_Email } from '../../../../createUserSlice'
 
 export const EmailTextField = () => {
-  const createUserState = useSelector((state: RootState) => state.createUser)
   const dispatch = useDispatch()
 
+  const createUserState = useSelector((state: RootState) => state.createUser)
   const { email } = createUserState
 
   return (

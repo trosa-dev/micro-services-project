@@ -5,9 +5,9 @@ import { RootState } from 'src/store'
 import { set_CreateUser_Name } from '../../../../createUserSlice'
 
 export const NameTextField = () => {
-  const createUserState = useSelector((state: RootState) => state.createUser)
   const dispatch = useDispatch()
 
+  const createUserState = useSelector((state: RootState) => state.createUser)
   const { name } = createUserState
 
   return (
